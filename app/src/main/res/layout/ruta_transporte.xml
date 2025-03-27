@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:background="@color/white_trasnparent"
+    android:layout_height="match_parent">
+
+
+
+    <!-- ENCABEZADO DE LA PAGINA FORMULARIO -->
+
+    <!-- IMAGEN DEL BUS -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/rounded_encabezado"
+        tools:ignore="NewApi">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="84dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="35dp"
+            android:bufferType="spannable"
+            android:text="RUTA"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="60dp"
+            android:bufferType="spannable"
+            android:text="TRANSPORTE"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="100dp"
+            android:bufferType="spannable"
+            android:text="Andrew Saldaña"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/btnMenuPrincipal"
+            android:layout_width="36dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/icono_menu"
+            android:contentDescription="TODO"
+            tools:ignore="RtlHardcoded" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/avatar"
+        tools:ignore="NewApi">
+    </FrameLayout>
+
+
+
+
+
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        android:layout_marginTop="200dp" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

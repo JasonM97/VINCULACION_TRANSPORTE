@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dark_transparent">#33000000</color>
+    <color name="white_trasnparent">#DDDDDD</color>
+    <color name="azul">#133562</color>
+    <color name="gris">#444444	</color>
+    <color name="verde">#009966	</color>
+
 </resources>
