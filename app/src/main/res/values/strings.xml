@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Prueba1</string>
+    <!-- Opciones de seleccion de genero -->
+    <string name="genero_prompt">Selecciona tu género</string>
+    <string-array name="genero_options">
+        <item>Hombre</item>
+        <item>Mujer</item>
+        <item>Otro</item>
+    </string-array>
 </resources>
