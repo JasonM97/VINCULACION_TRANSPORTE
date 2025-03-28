@@ -72,7 +72,6 @@
                     android:layout_height="75dp"
                     android:src="@drawable/avatar"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_image"
                     android:layout_marginTop="15dp"
                     tools:ignore="NewApi" />
 
@@ -80,6 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Andrew Saldaña"
+                    android:gravity="center"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </LinearLayout>
