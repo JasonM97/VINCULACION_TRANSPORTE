@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,12 @@ public class TarifaTransporte extends AppCompatActivity
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tarifa_transporte);
+
+        //REFERENCIA A LOS TEXTVIEWS
+        TextView txtUsuario = findViewById(R.id.nameView);
+        // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
+        String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
+        txtUsuario.setText(nombreUsuario);
 
 
         // -----------      ENLACE PARA IR AL MENU PRINCIPAL DE LAS ACTIVIDADES

@@ -4,15 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
+import android.widget.*;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuPrincipal extends AppCompatActivity
 {
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -20,6 +18,11 @@ public class MenuPrincipal extends AppCompatActivity
         EdgeToEdge.enable(this);
         setContentView(R.layout.menu_principal); // Establecer el diseño de SecondActivity
 
+        //REFERENCIA A LOS TEXTVIEWS
+        TextView txtUsuario = findViewById(R.id.editText);
+        // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
+        String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
+        txtUsuario.setText(nombreUsuario);
 
         // -PARA FINALIZAR LA SESION DEL MENU PRINCIPAL
 
@@ -36,10 +39,6 @@ public class MenuPrincipal extends AppCompatActivity
             }
 
         });
-
-
-
-
 
 
       // ACTIVIDADES DE INGRESARA LAS CONSULTAS DE TRASNPORTE : Ruta , tarifas, comentarios, informacion trasnporte
@@ -66,9 +65,5 @@ public class MenuPrincipal extends AppCompatActivity
             Intent intent = new Intent(MenuPrincipal.this, Comentarios.class);
             startActivity(intent);
         });
-
-
-
-
     }
 }

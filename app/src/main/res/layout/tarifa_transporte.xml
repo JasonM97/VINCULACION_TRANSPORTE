@@ -76,9 +76,10 @@
                     tools:ignore="NewApi" />
 
                 <TextView
+                    android:id="@+id/nameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Andrew Saldaña"
+                    android:text="--------"
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:textSize="14sp" />

@@ -18,6 +18,12 @@ public class rutaTransporte extends AppCompatActivity
         EdgeToEdge.enable(this);
         setContentView(R.layout.ruta_transporte);
 
+        //REFERENCIA A LOS TEXTVIEWS
+        TextView txtUsuario = findViewById(R.id.nameView);
+        // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
+        String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
+        txtUsuario.setText(nombreUsuario);
+
 
         // ENLACE PARA VOLVER A INCIO DE SESION
         ImageButton btnMenuPrincipal = findViewById(R.id.btnMenuPrincipal);

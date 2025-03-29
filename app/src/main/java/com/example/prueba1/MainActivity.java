@@ -28,15 +28,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    //DECLARACION DE LAS VARAIBLES PARA CONEXXION BASE DE DATOS (FIREBASE)
-    //FirebaseDatabase firebaseDatabase;
-    //DatabaseReference databaseReference;
-
     private FirebaseAuth mAuth;
-
+    private FirebaseFirestore db;
 
     //DECLARACION DE LAS VARAIBLES EDITEX
     private EditText usuario;
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
 
         //ENLAZAMIENTO CON LA INTERFAZ ACTIVITI MAIN - EDITEX
         usuario = findViewById(R.id.EtxtUsuario);
@@ -69,12 +67,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-           /*btnIniciar.setOnClickListener(v -> {
-              Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
-              startActivity(intent);
-            });*/
-
-
         // ENLACE PARA DIRIGIRSE AL FORMULARIO DE REGISTRO
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView txtRegistrar = findViewById(R.id.txtRegistrar);
         txtRegistrar.setOnClickListener(v -> {
@@ -85,31 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-  /*  private void inicializarFirebase() {
-
-        FirebaseApp.initializeApp(this);
-        firebaseDatabase= FirebaseDatabase.getInstance();
-        databaseReference= firebaseDatabase.getReference();
-
-    }*/
-
-    /*
-    @Override
-    protected void onStart() {
-        super.onStart();
-        // Verificar si el usuario ya ha iniciado sesión
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            // Si ya está autenticado, redirigir al menú principal
-            startActivity(new Intent(MainActivity.this, MenuPrincipal.class));
-            finish();
-        }
-    }*/
-
     private void login(){
 
         String emailLogin = usuario.getText().toString();
         String passLogin = contraseña.getText().toString();
+        db = FirebaseFirestore.getInstance();
 
         // Validar campos vacíos
         if(emailLogin.isEmpty() || passLogin.isEmpty()) {
@@ -121,24 +93,39 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
               if (task.isSuccessful()) {
+                  FirebaseUser user = mAuth.getCurrentUser();
+                  if (user != null) {
+                      String userId = user.getUid();
+                      // OBTENER EL NOMBRE DEL USUARIO DESDE FIRESTORE
+                      db.collection("usuarios").document(userId)
+                              .get()
+                              .addOnCompleteListener(task2 -> {
+                                  if (task2.isSuccessful()) {
+                                      DocumentSnapshot document = task2.getResult();
+                                      if (document.exists()) {
+                                          String nombreUsuario = document.getString("nombre");
+                                          //GUARDAR EL NOMBRE EN SHAREDPREFERENCES
+                                          getSharedPreferences("usuerData", MODE_PRIVATE)
+                                                  .edit()
+                                                  .putString("nombreUsuario", nombreUsuario)
+                                                  .apply();
 
-                  Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
-                  startActivity(intent);
-                  Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-                  finish(); // Evitar volver atrás a la pantalla de login
-              } else{
+                                          Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
+                                          startActivity(intent);
+                                          Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                                          finish(); // Evitar volver atrás a la pantalla de login
+                                      }
+                                  } else {
+                                      Toast.makeText(MainActivity.this, "Error al obtener datos: " + task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                  }
+                              });
+                  } else {
+                      // Si falla el inicio de sesión
+                      Toast.makeText(MainActivity.this, "Error-- " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
-                  // Si falla el inicio de sesión
-                  Toast.makeText(MainActivity.this, "Error-- "+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-
+                  }
               }
-
             }
-
         });
-
-
     }
-
-
 }
