@@ -28,7 +28,8 @@ public class TarifaTransporte extends AppCompatActivity
         TextView txtUsuario = findViewById(R.id.nameView);
         // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
         String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
-        txtUsuario.setText(nombreUsuario);
+        String apellidoUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("apellidoUsuario", "");
+        txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
 
 
         // -----------      ENLACE PARA IR AL MENU PRINCIPAL DE LAS ACTIVIDADES

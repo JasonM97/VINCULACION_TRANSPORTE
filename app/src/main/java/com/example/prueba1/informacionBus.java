@@ -1,24 +1,26 @@
 package com.example.prueba1;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.maps.GoogleMap;
-
-public class rutaTransporte extends AppCompatActivity
+public class informacionBus extends AppCompatActivity
 {
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.ruta_transporte);
+        setContentView(R.layout.informacion_bus);
 
         //REFERENCIA A LOS TEXTVIEWS
         TextView txtUsuario = findViewById(R.id.nameView);
@@ -27,24 +29,18 @@ public class rutaTransporte extends AppCompatActivity
         String apellidoUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("apellidoUsuario", "");
         txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
 
+        // -----------      ENLACE PARA IR AL MENU PRINCIPAL DE LAS ACTIVIDADES
 
-        // ENLACE PARA VOLVER A INCIO DE SESION
         ImageButton btnMenuPrincipal = findViewById(R.id.btnMenuPrincipal);
 
-       btnMenuPrincipal.setOnClickListener(v ->{
-        Intent intent = new Intent(rutaTransporte.this, MenuPrincipal.class);
-        startActivity(intent);
-       });
+        btnMenuPrincipal.setOnClickListener(v -> {
+            Intent intent = new Intent(informacionBus.this, MenuPrincipal.class);
+            startActivity(intent);
+        });
+
+
+
 
 
     }
-
-
-    private GoogleMap mMap;
-
-
-
-
-
-
 }

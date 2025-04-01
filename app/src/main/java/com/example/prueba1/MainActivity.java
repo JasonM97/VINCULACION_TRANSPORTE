@@ -93,35 +93,43 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
               if (task.isSuccessful()) {
-                  FirebaseUser user = mAuth.getCurrentUser();
+                  FirebaseUser user = mAuth.getCurrentUser(); //Obtener usuario actual iciio sesion
                   if (user != null) {
-                      String userId = user.getUid();
-                      // OBTENER EL NOMBRE DEL USUARIO DESDE FIRESTORE
+                      String userId = user.getUid(); // Obtener ID del usuario de firebase
+                      // OBTENER EL NOMBRE y apellido DEL USUARIO DESDE FIRESTORE
                       db.collection("usuarios").document(userId)
                               .get()
                               .addOnCompleteListener(task2 -> {
-                                  if (task2.isSuccessful()) {
-                                      DocumentSnapshot document = task2.getResult();
-                                      if (document.exists()) {
-                                          String nombreUsuario = document.getString("nombre");
-                                          //GUARDAR EL NOMBRE EN SHAREDPREFERENCES
-                                          getSharedPreferences("usuerData", MODE_PRIVATE)
-                                                  .edit()
-                                                  .putString("nombreUsuario", nombreUsuario)
-                                                  .apply();
+                                  if (task2.isSuccessful())
+                                  {
+                                      DocumentSnapshot document = task2.getResult(); //Guarda la informacion obtenida en una variable doucment
+                                          if (document.exists()) {
+                                              String nombreUsuario = document.getString("nombre"); //Obtenemos el nombre usuario
+                                              String apellidoUsuario = document.getString("apellido"); //Obtenemos el apellido usuario
+                                              //GUARDAR EL NOMBRE EN SHAREDPREFERENCES
+                                              getSharedPreferences("usuerData", MODE_PRIVATE)
+                                                      .edit()
+                                                      .putString("nombreUsuario", nombreUsuario)
+                                                      .apply();
 
-                                          Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
-                                          startActivity(intent);
-                                          Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-                                          finish(); // Evitar volver atrás a la pantalla de login
-                                      }
-                                  } else {
-                                      Toast.makeText(MainActivity.this, "Error al obtener datos: " + task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                              getSharedPreferences("usuerData", MODE_PRIVATE)
+                                                      .edit()
+                                                      .putString("apellidoUsuario", apellidoUsuario)
+                                                      .apply();
+
+                                              Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
+                                              startActivity(intent);
+                                              Toast.makeText(MainActivity.this, "INICIO EXISTOSO", Toast.LENGTH_SHORT).show();
+                                              finish(); // Evitar volver atrás a la pantalla de login
+                                          }
+                                  } else
+                                  {
+                                      Toast.makeText(MainActivity.this, "DATOS NO ENCONTRADOS REGISTRESE " + task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                   }
                               });
                   } else {
                       // Si falla el inicio de sesión
-                      Toast.makeText(MainActivity.this, "Error-- " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                      Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
 
                   }
               }

@@ -2,10 +2,14 @@ package com.example.prueba1;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +28,8 @@ public class Comentarios extends AppCompatActivity
         TextView txtUsuario = findViewById(R.id.nameView);
         // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
         String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
-        txtUsuario.setText(nombreUsuario);
+        String apellidoUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("apellidoUsuario", "");
+        txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
 
         // -----------      ENLACE PARA IR AL MENU PRINCIPAL DE LAS ACTIVIDADES
 
@@ -36,7 +41,51 @@ public class Comentarios extends AppCompatActivity
         });
 
 
+        // -----------      ENLACE PARA IR AL WAHASP DEL CONTACTO
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageButton btnWashapt = findViewById(R.id.btnWashapt);
+
+        btnWashapt.setOnClickListener(v -> {
+            String phoneNumber = "593987724651"; // Reemplaza con el número de teléfono (incluye código de país)
+            String url = "https://wa.me/" + phoneNumber;
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+        });
+
+
+        /*
+        btnWashapt.setOnClickListener(v -> {
+            WebView webView = new WebView(this);
+            setContentView(webView);
+            webView.loadUrl("https://tecnoecuatoriano.edu.ec/");
+        });
+
+         */
+
+
+
+
+
+
+
+
+       // -----------      ENLACE PARA IR LLAMAR A UN NUMERO
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageButton btnLlamar = findViewById(R.id.btnLlamar);
+        btnLlamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = "0987724651";
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phoneNumber));
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
     }
-
 }

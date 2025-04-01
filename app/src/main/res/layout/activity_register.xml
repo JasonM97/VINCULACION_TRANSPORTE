@@ -69,16 +69,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- IMAGEN PREVIEW -->
-            <ImageView
-                android:id="@+id/imagePreview"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:scaleType="centerCrop"
-                android:background="@drawable/rounded_edittext_bakgraund_azul" />
-
             <!-- GRUPO NOMBRE Y APELLIDO -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -201,16 +191,26 @@
                 android:padding="15dp"
                 android:prompt="@string/genero_prompt" />
 
+            <!-- IMAGEN PREVIEW -->
+            <ImageView
+                android:id="@+id/imagePreview"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_edittext_bakgraund_azul" />
+
             <!-- BOTÓN DE REGISTRO -->
             <Button
                 android:id="@+id/btnRegistro"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
+                android:layout_gravity="center"
                 android:backgroundTint="@color/azul"
                 android:text="REGISTRARSE"
                 android:textColor="@color/white" />
-
             <!-- ENLACE PARA VOLVER AL INICIO -->
             <TextView
                 android:id="@+id/txtVolver"
@@ -221,6 +221,8 @@
                 android:text="Volver al Inicio"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
+
         </LinearLayout>
     </ScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

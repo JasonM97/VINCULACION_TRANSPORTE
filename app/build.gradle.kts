@@ -50,6 +50,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
     implementation("com.google.firebase:firebase-analytics")
 
+    //  DEPENDENCIAS PARA EL FIREBASE
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-firestore")
@@ -59,7 +60,11 @@ dependencies {
   //  implementation("com.google.firebase:firebase-auth:21.0.1")
    // implementation("com.google.firebase:firebase-firestore:24.0.0")
 
+  // DEPENCIAS PARA EL API GOOGLE MAPS
 
-
-
+  //  implementation("com.google.android.gms:play-services-maps:18.1.0")
+  //  implementation("com.google.maps:google-maps-services:2.1.1")
+   // implementation("com.google.maps.android:android-maps-utils:2.3.0")
+   // implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    //implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }

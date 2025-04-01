@@ -22,7 +22,9 @@ public class MenuPrincipal extends AppCompatActivity
         TextView txtUsuario = findViewById(R.id.editText);
         // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
         String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
-        txtUsuario.setText(nombreUsuario);
+        String apellidoUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("apellidoUsuario", "");
+        txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
+
 
         // -PARA FINALIZAR LA SESION DEL MENU PRINCIPAL
 
@@ -47,6 +49,7 @@ public class MenuPrincipal extends AppCompatActivity
        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button  btnRuta = findViewById(R.id.btnRuta);
        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnTarifaTransporte = findViewById(R.id.btnTarifaTransporte);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnComentarios = findViewById(R.id.btnComentarios);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnInformacionBus = findViewById(R.id.btnInformacionBus);
 
         //DIRECCIONAR A LA PAGINA DE MENU PRINCIPAL
         btnRuta.setOnClickListener(v -> {
@@ -65,5 +68,13 @@ public class MenuPrincipal extends AppCompatActivity
             Intent intent = new Intent(MenuPrincipal.this, Comentarios.class);
             startActivity(intent);
         });
+
+        //DIRECCIONAR A LA PAGINA INFORMACION BUSES
+        btnInformacionBus.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuPrincipal.this, informacionBus.class);
+            startActivity(intent);
+        });
+
+
     }
 }

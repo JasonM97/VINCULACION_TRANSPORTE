@@ -11,253 +11,297 @@
 
 
     <!-- ENCABEZADO DE LA PAGINA FORMULARIO -->
-
-    <!-- IMAGEN DEL BUS -->
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:background="@drawable/rounded_encabezado"
         tools:ignore="NewApi">
-
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="47dp"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="35dp"
-            android:bufferType="spannable"
-            android:text="COMENTARIOS"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="60dp"
-            android:bufferType="spannable"
-            android:text="SUGERENCIAS"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/nameView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="280dp"
-            android:layout_marginTop="100dp"
-            android:bufferType="spannable"
-            android:text="--------"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
 
         <ImageButton
             android:id="@+id/btnMenuPrincipal"
             android:layout_width="36dp"
             android:layout_height="35dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="90dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/icono_menu"
             android:contentDescription="TODO"
             tools:ignore="RtlHardcoded" />
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
 
-    <FrameLayout
-        android:layout_width="60dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/avatar"
-        tools:ignore="NewApi">
-    </FrameLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="16dp">
 
-    <TextView
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SUGERENCIAS"
+                        android:textColor="@color/white"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COMENTARIOS"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/avatar"
+                        android:scaleType="centerCrop"
+                        android:layout_marginTop="10dp"
+                        tools:ignore="NewApi" />
+
+                    <TextView
+                        android:id="@+id/nameView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--------"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <!-- CONTENIDO DE FORMULARIO -->
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="150dp"
-        android:textColor="@color/azul"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="ENVIANOS TUS QUEJAS O SUGERENCIAS "/>
+        android:layout_marginTop="140dp">
 
-    <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="27dp"
-        android:background="@drawable/rounded_edittext_bakgraund_azul"
-        android:breakStrategy="balanced"
-        android:hint="Nombre"
-        android:inputType="text"
-        android:padding="15dp"
-        android:textColorHint="@android:color/darker_gray"
-        android:textColor="@color/azul"
-        android:textSize="14sp" />
+        <!-- CONTENDO DEL LLENADO FORMUALRIO-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/txtApellido"
-        android:layout_width="172dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/rounded_edittext_bakgraund_azul"
-        android:breakStrategy="balanced"
-        android:hint="Apellido"
-        android:inputType="text"
-        android:padding="15dp"
-        android:textColorHint="@android:color/darker_gray"
-        android:textColor="@color/azul"
-        android:textSize="14sp" />
+            <!-- FORMULAARIOS-->
+
+            <!-- Titulo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/azul"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="ENVIANOS TUS QUEJAS O SUGERENCIAS "/>
+            <!-- Grupo Nombre y Apellido -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <EditText
+                    android:id="@+id/txtNombre"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/rounded_edittext_bakgraund_azul"
+                    android:hint="Nombre"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/azul"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtApellido"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_bakgraund_azul"
+                    android:hint="Apellido"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/azul"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <!-- celular y mail -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <EditText
+                    android:id="@+id/txtCelular"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/rounded_edittext_bakgraund_azul"
+                    android:hint="Número Celular"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/azul"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtCorreo"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_bakgraund_azul"
+                    android:hint="Correo Electronico"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@color/azul"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <!-- cuadro de comentarios -->
+            <EditText
+                android:id="@+id/feedbackEditText"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                android:hint="Escribe tus comentarios o sugerencias aquí..."
+                android:inputType="textMultiLine"
+                android:gravity="start|top"
+                android:padding="10dp"
+                android:background="@drawable/rounded_edittext_bakgraund_azul"
+                android:maxLines="10"
+                android:scrollbars="vertical" />
+            <!-- enviar formulario -->
+            <Button
+                android:id="@+id/btnEnviar"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/azul"
+                android:text="ENVIAR"
+                android:textColor="@color/white"/>
+
+            <!--  ////////////////// CONTACTANOS-->
+
+            <!-- Titulo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="0dp"
+                android:textColor="@color/azul"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="CONTACTANOS"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/icono_call_center"/>
+
+                <ImageButton
+                    android:id="@+id/btnWashapt"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/imagebutton_redondear"
+                    android:padding="20dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icono_whasahap"
+                    android:textColor="@color/white" />
 
 
-    <EditText
-        android:id="@+id/txtCorreo"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/rounded_edittext_bakgraund_azul"
-        android:breakStrategy="balanced"
-        android:hint="Correo Electronico"
-        android:inputType="text|date"
-        android:padding="15dp"
-        android:textColorHint="@android:color/darker_gray"
-        android:textColor="@color/white"
-        android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/btnLlamar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/imagebutton_redondear"
+                    android:padding="20dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icono_llamar"
+                    android:textColor="@color/white" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/txtCelular"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="270dp"
-        android:background="@drawable/rounded_edittext_bakgraund_azul"
-        android:breakStrategy="balanced"
-        android:hint="Numero Celular"
-        android:inputType="text|number"
-        android:padding="15dp"
-        android:textColorHint="@android:color/darker_gray"
-        android:textColor="@color/azul"
-        android:textSize="14sp" />
+            <!-- Titulo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:textColor="@color/azul"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="      HOARARIOS DE ATENCIÓN  "/>
 
-    <EditText
-
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="340dp"
-        android:layout_marginEnd="27dp"
-        android:background="@drawable/rounded_edittext_bakgraund_azul"
-        android:breakStrategy="balanced"
-        android:hint="Escriba una descripcion"
-        android:inputType="text"
-        android:padding="15dp"
-        android:textColorHint="@android:color/darker_gray"
-        android:textColor="@color/azul"
-        android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/azul"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Lunes - Viernes"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/azul"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="8:00am - 17:00pm"/>
 
 
-    <Button
-        android:id="@+id/btnEnviar"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="450dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="@color/azul"
-        android:text="ENVIAR"
-        android:textColor="@color/white"/>
 
 
-    <!-- SESSION DE CONTACTO -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="520dp"
-        android:textColor="@color/azul"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="CONTACTANOS"/>
+        </LinearLayout>
+
+    </ScrollView>
 
 
-    <ImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="560dp"
-        android:background="@drawable/icono_call_center"/>
-
-    <Button
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="570dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/boton_redondeado"
-        android:textColor="@color/white" />
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="580dp"
-        android:background="@drawable/icono_whasahap"/>
-
-    <Button
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:background="@drawable/boton_redondeado"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="570dp"
-        android:layout_marginEnd="50dp"
-        android:textColor="@color/white"/>
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="580dp"
-        android:background="@drawable/icono_llamar"/>
-
-    <!-- SESSION DE HORARAIO DE ATENCION -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="690dp"
-        android:textColor="@color/azul"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:text="HORARIOS DE ATENCIÓN"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="230dp"
-        android:layout_marginTop="710dp"
-        android:textColor="@color/azul"
-        android:textSize="15sp"
-        android:text="Lunes - Viernes"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="730dp"
-        android:textColor="@color/azul"
-        android:textSize="14sp"
-        android:text="8:00 am A 17:00 pm"/>
 
 
 
