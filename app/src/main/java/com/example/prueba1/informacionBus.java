@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,12 +23,27 @@ public class informacionBus extends AppCompatActivity
         EdgeToEdge.enable(this);
         setContentView(R.layout.informacion_bus);
 
+
+        //REFERENCIA DEL IMAGEN
+        ImageView imgAvatar = findViewById(R.id.avatar);
+        String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
+        // Establecer la imagen según el género
+        if (generoUsuario != null && generoUsuario.equalsIgnoreCase("Mujer")) {
+            imgAvatar.setImageResource(R.drawable.icono_mujer); // Asegúrate de tener este drawable
+        } else {
+            imgAvatar.setImageResource(R.drawable.icono_hombre); // Asegúrate de tener este drawable
+        }
+
+
+
         //REFERENCIA A LOS TEXTVIEWS
         TextView txtUsuario = findViewById(R.id.nameView);
         // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
         String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
         String apellidoUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("apellidoUsuario", "");
         txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
+
+
 
         // -----------      ENLACE PARA IR AL MENU PRINCIPAL DE LAS ACTIVIDADES
 

@@ -8,6 +8,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -23,6 +24,16 @@ public class TarifaTransporte extends AppCompatActivity
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tarifa_transporte);
+
+        //REFERENCIA DEL IMAGEN
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageView imgAvatar = findViewById(R.id.avatar);
+        String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
+        // Establecer la imagen según el género
+        if (generoUsuario != null && generoUsuario.equalsIgnoreCase("Mujer")) {
+            imgAvatar.setImageResource(R.drawable.icono_mujer); // Asegúrate de tener este drawable
+        } else {
+            imgAvatar.setImageResource(R.drawable.icono_hombre); // Asegúrate de tener este drawable
+        }
 
         //REFERENCIA A LOS TEXTVIEWS
         TextView txtUsuario = findViewById(R.id.nameView);

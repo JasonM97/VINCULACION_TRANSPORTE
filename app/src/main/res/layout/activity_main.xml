@@ -8,21 +8,22 @@
     android:layout_height="match_parent">
 
     <!-- LOGO DE SAN ANTONIO GAD -->
-     <ImageView
-         android:id="@+id/imageView"
-         android:layout_width="300dp"
-         android:layout_height="100dp"
-         android:layout_marginStart="16dp"
-         android:layout_marginEnd="16dp"
-         android:layout_marginTop="1dp"
-         android:layout_marginBottom="16dp"
-         app:srcCompat="@drawable/logo_gad"
-         tools:ignore="MissingConstraints" />
 
-     <!-- CONTENEDOR DE LAS BOX DEL LOGIN Y PASSWORD -->
+    <!-- CONTENEDOR DE LAS BOX DEL LOGIN Y PASSWORD -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/logo_gad"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="340dp"
-        android:layout_height="317dp"
+        android:layout_height="310dp"
         android:layout_gravity="center"
         app:cardBackgroundColor="#99BBCDD1"
         app:cardCornerRadius="20dp"
@@ -32,7 +33,7 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785">
+        app:layout_constraintVertical_bias="0.638">
 
         <!-- TITLE Y TEXT BOX USER  -->
         <TextView
@@ -40,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
+            android:textStyle="bold"
             android:layout_marginTop="30dp"
             android:layout_marginRight="25dp"
             android:text="USUARIO"
@@ -71,11 +73,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
+            android:textStyle="bold"
             android:layout_marginTop="110dp"
             android:layout_marginRight="25dp"
             android:text="CONTRASEÑA"
-            android:textColor="@android:color/black"
-             />
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/EtxtContraseña"
@@ -85,13 +87,12 @@
             android:layout_marginTop="130dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/rounded_edittext_background"
-            android:hint="***********"
+            android:hint="*******"
             android:inputType="textPassword"
-            android:textColor="@color/white"
             android:padding="15dp"
+            android:textColor="@color/white"
             android:textColorHint="@android:color/darker_gray"
             android:textSize="15sp" />
-
 
 
         <TextView
@@ -99,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="249dp"
             android:layout_marginRight="25dp"
             android:text="Recuperar Contraseña"
             android:textColor="@color/black" />
@@ -110,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="170dp"
-            android:layout_marginTop="282dp"
+            android:layout_marginTop="275dp"
             android:layout_marginRight="25dp"
             android:text="Registrarse"
             android:textColor="@color/black" />
@@ -120,11 +121,11 @@
             android:id="@+id/imageView2"
             android:layout_width="82dp"
             android:layout_height="71dp"
-            app:srcCompat="@drawable/icono_usuario"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="50dp"
             android:layout_marginTop="28dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/icono_usuario" />
 
 
         <!-- ICON PASSWORD -->
@@ -132,24 +133,88 @@
             android:id="@+id/imageView3"
             android:layout_width="82dp"
             android:layout_height="71dp"
-            app:srcCompat="@drawable/icono_password"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="50dp"
             android:layout_marginTop="110dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/icono_password" />
 
         <Button
             android:id="@+id/btnIniciar"
-            android:layout_width="119dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_marginStart="140dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="188dp"
             android:layout_marginEnd="50dp"
             android:backgroundTint="@color/black"
             android:text="INICIAR" />
 
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="12dp"
+        android:text="SIGUENOS"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="286dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.515"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:id="@+id/btnFacebook"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rendodear_boton_rss"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/facebook"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/btnInstagram"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rendodear_boton_rss"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/instagram"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/btnGoogle"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rendodear_boton_rss"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/tiktok"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -72,6 +72,7 @@
                     android:layout_marginEnd="16dp">
 
                     <ImageView
+                        android:id="@+id/avatar"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:src="@drawable/avatar"
@@ -245,7 +246,7 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
                     android:background="@drawable/imagebutton_redondear"
-                    android:padding="20dp"
+                    android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/icono_whasahap"
                     android:textColor="@color/white" />
@@ -257,7 +258,7 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
                     android:background="@drawable/imagebutton_redondear"
-                    android:padding="20dp"
+                    android:padding="10dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/icono_llamar"
                     android:textColor="@color/white" />

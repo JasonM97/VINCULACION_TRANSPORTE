@@ -18,6 +18,17 @@ public class MenuPrincipal extends AppCompatActivity
         EdgeToEdge.enable(this);
         setContentView(R.layout.menu_principal); // Establecer el diseño de SecondActivity
 
+        //REFERENCIA DEL IMAGEN
+        ImageView imgAvatar = findViewById(R.id.avatar);
+        String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
+        // Establecer la imagen según el género
+        if (generoUsuario != null && generoUsuario.equalsIgnoreCase("Mujer")) {
+            imgAvatar.setImageResource(R.drawable.icono_mujer); // Asegúrate de tener este drawable
+        } else {
+            imgAvatar.setImageResource(R.drawable.icono_hombre); // Asegúrate de tener este drawable
+        }
+
+
         //REFERENCIA A LOS TEXTVIEWS
         TextView txtUsuario = findViewById(R.id.editText);
         // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES

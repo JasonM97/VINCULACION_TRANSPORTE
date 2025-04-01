@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,18 @@ public class Comentarios extends AppCompatActivity
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.enviar_comentarios);
+
+        //REFERENCIA DEL IMAGEN
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageView imgAvatar = findViewById(R.id.avatar);
+        String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
+        // Establecer la imagen según el género
+        if (generoUsuario != null && generoUsuario.equalsIgnoreCase("Mujer")) {
+            imgAvatar.setImageResource(R.drawable.icono_mujer); // Asegúrate de tener este drawable
+        } else {
+            imgAvatar.setImageResource(R.drawable.icono_hombre); // Asegúrate de tener este drawable
+        }
+
+
 
         //REFERENCIA A LOS TEXTVIEWS
         TextView txtUsuario = findViewById(R.id.nameView);
@@ -63,13 +76,6 @@ public class Comentarios extends AppCompatActivity
         });
 
          */
-
-
-
-
-
-
-
 
        // -----------      ENLACE PARA IR LLAMAR A UN NUMERO
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageButton btnLlamar = findViewById(R.id.btnLlamar);
