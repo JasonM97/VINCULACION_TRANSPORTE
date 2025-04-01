@@ -2,6 +2,7 @@ package com.example.prueba1;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -22,14 +23,18 @@ public class MenuPrincipal extends AppCompatActivity
         ImageView imgAvatar = findViewById(R.id.avatar);
         String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
         // Establecer la imagen según el género
-        if (generoUsuario != null && generoUsuario.equalsIgnoreCase("Mujer")) {
-            imgAvatar.setImageResource(R.drawable.icono_mujer); // Asegúrate de tener este drawable
-        } else {
-            imgAvatar.setImageResource(R.drawable.icono_hombre); // Asegúrate de tener este drawable
-        }
+
+            if (generoUsuario.equalsIgnoreCase("Hombre"  ))
+            {
+                imgAvatar.setImageResource(R.drawable.icono_hombre);
+            }
+            else {
+                imgAvatar.setImageResource(R.drawable.icono_mujer);
+            }
 
 
-        //REFERENCIA A LOS TEXTVIEWS
+
+        //REFERENCIA A LOS TEXTVIEWS para que salga el nombre
         TextView txtUsuario = findViewById(R.id.editText);
         // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
         String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");

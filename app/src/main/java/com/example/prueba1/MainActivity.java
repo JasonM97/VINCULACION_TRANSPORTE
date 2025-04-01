@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText contraseña;
 
 
+
     //@SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         String emailLogin = usuario.getText().toString();
         String passLogin = contraseña.getText().toString();
+
         db = FirebaseFirestore.getInstance();
 
         // Validar campos vacíos
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                                           if (document.exists()) {
                                               String nombreUsuario = document.getString("nombre"); //Obtenemos el nombre usuario
                                               String apellidoUsuario = document.getString("apellido"); //Obtenemos el apellido usuario
+                                              String generoUsuario = document.getString("genero");
                                               //GUARDAR EL NOMBRE EN SHAREDPREFERENCES
                                               getSharedPreferences("usuerData", MODE_PRIVATE)
                                                       .edit()
@@ -115,6 +118,11 @@ public class MainActivity extends AppCompatActivity {
                                               getSharedPreferences("usuerData", MODE_PRIVATE)
                                                       .edit()
                                                       .putString("apellidoUsuario", apellidoUsuario)
+                                                      .apply();
+
+                                              getSharedPreferences("usuerData", MODE_PRIVATE)
+                                                      .edit()
+                                                      .putString("generoUsuario", generoUsuario)
                                                       .apply();
 
                                               Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);

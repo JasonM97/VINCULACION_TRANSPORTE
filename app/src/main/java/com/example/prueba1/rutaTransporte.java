@@ -41,10 +41,14 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
         ImageView imgAvatar = findViewById(R.id.avatar);
         String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
         // Establecer la imagen según el género
-        if (generoUsuario != null && generoUsuario.equalsIgnoreCase("Mujer")) {
-            imgAvatar.setImageResource(R.drawable.icono_mujer); // Asegúrate de tener este drawable
-        } else {
-            imgAvatar.setImageResource(R.drawable.icono_hombre); // Asegúrate de tener este drawable
+        if (generoUsuario != null)
+        {
+            if (generoUsuario.equalsIgnoreCase("Mujer"))
+            {
+                imgAvatar.setImageResource(R.drawable.icono_mujer);
+            } else {
+                imgAvatar.setImageResource(R.drawable.icono_hombre);
+            }
         }
 
 
