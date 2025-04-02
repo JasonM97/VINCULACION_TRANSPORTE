@@ -109,18 +109,19 @@ public class MainActivity extends AppCompatActivity {
                                               String nombreUsuario = document.getString("nombre"); //Obtenemos el nombre usuario
                                               String apellidoUsuario = document.getString("apellido"); //Obtenemos el apellido usuario
                                               String generoUsuario = document.getString("genero");
+                                              System.out.println("Genero del usuario: ---------------------- " + generoUsuario);
                                               //GUARDAR EL NOMBRE EN SHAREDPREFERENCES
-                                              getSharedPreferences("usuerData", MODE_PRIVATE)
+                                              getSharedPreferences("userData", MODE_PRIVATE)
                                                       .edit()
                                                       .putString("nombreUsuario", nombreUsuario)
                                                       .apply();
 
-                                              getSharedPreferences("usuerData", MODE_PRIVATE)
+                                              getSharedPreferences("userData", MODE_PRIVATE)
                                                       .edit()
                                                       .putString("apellidoUsuario", apellidoUsuario)
                                                       .apply();
 
-                                              getSharedPreferences("usuerData", MODE_PRIVATE)
+                                              getSharedPreferences("userData", MODE_PRIVATE)
                                                       .edit()
                                                       .putString("generoUsuario", generoUsuario)
                                                       .apply();

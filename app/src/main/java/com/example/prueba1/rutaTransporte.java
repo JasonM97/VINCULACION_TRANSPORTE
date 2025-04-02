@@ -57,8 +57,8 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
             //REFERENCIA A LOS TEXTVIEWS
             TextView txtUsuario = findViewById(R.id.nameView);
             // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
-            String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
-            String apellidoUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("apellidoUsuario", "");
+            String nombreUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("nombreUsuario", "");
+            String apellidoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("apellidoUsuario", "");
             txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
 
 

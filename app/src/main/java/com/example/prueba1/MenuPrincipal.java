@@ -22,6 +22,7 @@ public class MenuPrincipal extends AppCompatActivity
         //REFERENCIA DEL IMAGEN
         ImageView imgAvatar = findViewById(R.id.avatar);
         String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
+        System.out.println("----------------------------------------------------------------"+generoUsuario);
         // Establecer la imagen según el género
 
             if (generoUsuario.equalsIgnoreCase("Hombre"  ))
@@ -37,8 +38,8 @@ public class MenuPrincipal extends AppCompatActivity
         //REFERENCIA A LOS TEXTVIEWS para que salga el nombre
         TextView txtUsuario = findViewById(R.id.editText);
         // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
-        String nombreUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("nombreUsuario", "");
-        String apellidoUsuario = getSharedPreferences("usuerData", MODE_PRIVATE).getString("apellidoUsuario", "");
+        String nombreUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("nombreUsuario", "");
+        String apellidoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("apellidoUsuario", "");
         txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
 
 
@@ -50,6 +51,7 @@ public class MenuPrincipal extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 // Opción 1: Volver a MainActivity y limpiar el stack
+                getSharedPreferences("userData", MODE_PRIVATE).edit().clear().apply();
                 Intent intent = new Intent(MenuPrincipal.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
