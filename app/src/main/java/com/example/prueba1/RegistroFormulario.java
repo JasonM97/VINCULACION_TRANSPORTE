@@ -57,7 +57,7 @@ public class RegistroFormulario extends AppCompatActivity {
         imagePreview = findViewById(R.id.imagePreview);
 
         // CONFIGURACION DEL SPINNER PARA SELECCIONAR EL GÉNERO
-        String[] generos = {"Hombre", "Mujer", "Otro"};
+        String[] generos = {"Seleccione su Género","Hombre", "Mujer", "Otro"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, generos);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGenero.setAdapter(adapter);
@@ -82,6 +82,8 @@ public class RegistroFormulario extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
+
+
         // Boton para enviar el registro a la base de datos Firebase : uso metodo registar()
         Button btnRegistro = findViewById(R.id.btnRegistro);
         btnRegistro.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +93,8 @@ public class RegistroFormulario extends AppCompatActivity {
             }
         });
     }
+
+
     // --------- METODO PARA REGISTARSE CON EL FORMULARIO
     private void registrar() {
         String nombreUsuario = nombre.getText().toString();

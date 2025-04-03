@@ -49,10 +49,20 @@
         <activity android:name=".Comentarios" />
         <!-- CLASE INFORMACION BUS -->
         <activity android:name=".informacionBus" />
+        <!-- CLASE PARA RECUPERAR CONTRASEÑA -->
+        <activity android:name=".recuperarContraseña" />
+        <!-- CLASE PARA INFORMACION APP-->
+        <activity android:name=".infoApp" />
 
+        <!-- PARA LA API GOOGLE -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDfEc5cgk4zuh47rrsCV0d3NprpBWUmkS8" />
+
+        <!-- LOGIN CON GOOGLE -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
 
     </application>

@@ -69,7 +69,7 @@ public class MenuPrincipal extends AppCompatActivity
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnComentarios = findViewById(R.id.btnComentarios);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnInformacionBus = findViewById(R.id.btnInformacionBus);
 
-        //DIRECCIONAR A LA PAGINA DE MENU PRINCIPAL
+        //DIRECCIONAR A LA RUTA DE TRASNPORTE
         btnRuta.setOnClickListener(v -> {
             Intent intent = new Intent(MenuPrincipal.this, rutaTransporte.class);
             startActivity(intent);
@@ -92,6 +92,20 @@ public class MenuPrincipal extends AppCompatActivity
             Intent intent = new Intent(MenuPrincipal.this, informacionBus.class);
             startActivity(intent);
         });
+
+
+        // DIREECIONAR A LA INFORMACION DE LA APP
+
+        ImageButton btnInformacion = findViewById(R.id.btnInfo);
+
+        btnInformacion.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuPrincipal.this, infoApp.class);
+            startActivity(intent);
+        });
+
+
+
+
 
 
     }

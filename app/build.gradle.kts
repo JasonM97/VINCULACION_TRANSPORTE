@@ -68,13 +68,9 @@ dependencies {
    // implementation("com.squareup.retrofit2:retrofit:2.9.0")
     //implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-
-
-
-
-
-
-
+    // DEPENCIAS PARA LOGEO AUTOMATICO CON CUENTA DE GOOGLE
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
+    implementation("com.firebaseui:firebase-ui-auth:8.0.0")
 
 
 }

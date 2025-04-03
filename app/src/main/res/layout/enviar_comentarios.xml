@@ -171,7 +171,7 @@
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/rounded_edittext_bakgraund_azul"
                     android:hint="Número Celular"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:padding="15dp"
                     android:textColorHint="@android:color/darker_gray"
                     android:textColor="@color/azul"
@@ -192,7 +192,7 @@
             </LinearLayout>
             <!-- cuadro de comentarios -->
             <EditText
-                android:id="@+id/feedbackEditText"
+                android:id="@+id/txtDescripcion"
                 android:layout_width="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_height="120dp"
@@ -229,16 +229,16 @@
                 android:text="CONTACTANOS"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="382dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="11dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="0dp">
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:src="@drawable/icono_call_center"/>
+                    android:src="@drawable/icono_call_center" />
 
                 <ImageButton
                     android:id="@+id/btnWashapt"
@@ -246,7 +246,7 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
                     android:background="@drawable/imagebutton_redondear"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/icono_whasahap"
                     android:textColor="@color/white" />
@@ -258,7 +258,7 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
                     android:background="@drawable/imagebutton_redondear"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/icono_llamar"
                     android:textColor="@color/white" />

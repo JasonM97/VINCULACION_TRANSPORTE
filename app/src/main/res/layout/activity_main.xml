@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/fondo_saa"
+    android:background="@drawable/fondo_mitad"
     android:layout_height="match_parent">
 
     <!-- LOGO DE SAN ANTONIO GAD -->
@@ -17,8 +17,8 @@
         android:layout_height="100dp"
         app:srcCompat="@drawable/logo_gad"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -96,7 +96,7 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txtRecupera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
@@ -110,19 +110,20 @@
             android:id="@+id/txtRegistrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
+            android:layout_marginLeft="165dp"
             android:layout_marginTop="275dp"
-            android:layout_marginRight="25dp"
-            android:text="Registrarse"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:text="¿Registrarse?"
             android:textColor="@color/black" />
 
         <!-- ICON USER  -->
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="82dp"
-            android:layout_height="71dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="16dp"
             app:srcCompat="@drawable/icono_usuario" />
@@ -131,10 +132,10 @@
         <!-- ICON PASSWORD -->
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="82dp"
-            android:layout_height="71dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="110dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="125dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="16dp"
             app:srcCompat="@drawable/icono_password" />
@@ -143,11 +144,35 @@
             android:id="@+id/btnIniciar"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_marginStart="140dp"
+            android:layout_marginStart="145dp"
             android:layout_marginTop="188dp"
             android:layout_marginEnd="50dp"
             android:backgroundTint="@color/black"
             android:text="INICIAR" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:text="LOGIN WITH"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/btnGoogle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="215dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rendodear_boton_rss"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/google"
+            android:textColor="@color/white" />
+
+
 
 
     </androidx.cardview.widget.CardView>
@@ -166,10 +191,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
+    <!-- DIRECCIONAR REDES SOCIALES -->
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="286dp"
-        android:layout_height="85dp"
+        android:layout_width="260dp"
+        android:layout_height="75dp"
         android:layout_marginTop="35dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -177,13 +204,13 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.515"
+        app:layout_constraintVertical_bias="0.214"
         tools:ignore="MissingConstraints">
 
         <ImageButton
             android:id="@+id/btnFacebook"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/rendodear_boton_rss"
             android:padding="10dp"
@@ -193,8 +220,8 @@
 
         <ImageButton
             android:id="@+id/btnInstagram"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/rendodear_boton_rss"
             android:padding="10dp"
@@ -203,9 +230,9 @@
             android:textColor="@color/white" />
 
         <ImageButton
-            android:id="@+id/btnGoogle"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:id="@+id/btntiktok"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/rendodear_boton_rss"
             android:padding="10dp"

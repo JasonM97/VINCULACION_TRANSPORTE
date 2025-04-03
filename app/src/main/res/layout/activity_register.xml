@@ -131,7 +131,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_edittext_bakgraund_azul"
-                    android:hint="Fecha de Nacimiento"
+                    android:hint="Fecha: 01/01/2025"
                     android:inputType="date"
                     android:padding="15dp"
                     android:textColorHint="@android:color/darker_gray"
