@@ -96,61 +96,100 @@
 
     <!-- CONTENIDO RUTA DEL MAPA -->
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_marginTop="170dp"
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"> <!-- Margen inferior para separar de otros elementos -->
 
+            <!-- Campo de texto para la latitud -->
             <EditText
                 android:id="@+id/txtLatitud"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:hint="LATITUD"
-                android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Latitud"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:padding="8dp" />
 
+            <!-- Campo de texto para la longitud -->
             <EditText
                 android:id="@+id/txtLongitud"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:hint="LONGITUD"
-                android:textStyle="bold" />
-
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Longitud"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:padding="8dp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="MAPA GOOGLE"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:textColor="@color/azul"
-            android:layout_height="wrap_content"/>
-
-
-
+        <!-- Fragmento del mapa de Google -->
         <fragment
             android:id="@+id/maps"
             android:name="com.google.android.gms.maps.SupportMapFragment"
-            map:cameraZoom="10"
-            map:uiRotateGestures="true"
-            map:uiZoomControls="true"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtLongitud" />
+            android:layout_weight="2"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Lista de rutas guardadas -->
+        <ListView
+            android:id="@+id/listSavedRoutes"
+            android:layout_width="match_parent"
+            android:layout_height="131dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1" />
+
+        <!-- Contenedor para los botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"> <!-- Margen inferior más grande para subir los botones -->
+
+            <!-- Botón para guardar la ruta -->
+            <Button
+                android:id="@+id/btnSaveRoute"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Guardar Ruta"
+                android:layout_marginEnd="8dp" /> <!-- Margen a la derecha para separar del otro botón -->
+
+            <!-- Botón para eliminar la ruta -->
+            <Button
+                android:id="@+id/btnDeleteRoute"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Eliminar Ruta" />
+        </LinearLayout>
 
 
     </LinearLayout>
+
+
+
+
+
+
+</ScrollView>
+
+
 
 
 

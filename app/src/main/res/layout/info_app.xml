@@ -58,37 +58,64 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="190dp">
+        android:layout_marginTop="150dp">
 
         <ImageView
             android:layout_width="300dp"
+            android:layout_height="222dp"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:layout_height="300dp"
-            android:src="@drawable/tecno2"/>
+            android:padding="0dp"
+            android:src="@drawable/tecno2" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
             android:textStyle="bold"
-            android:text="xxxxxxxxxxxxxxxxx"/>
+            android:text="DESARROLLADO POR : "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:text="Alizon Daniela Pilatuña Simbaña"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:text="Christian Marcelo Cevallos Chicaiza"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:text="Jimmy Joel Velasquez Pila"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:text="Jason Javier Marcatoma Llivi"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:text="Marcos Joel Galarza Paredes"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:text="Washington Toledo"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
             android:textStyle="bold"
-            android:text="xxxxxxxxxxxxxxxxx"/>
-
+            android:text="TUTOR : "/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:textStyle="bold"
-            android:text="xxxxxxxxxxxxxxxxx"/>
-
-
-
+            android:text="Ing. Diego Altamirano"/>
 
     </LinearLayout>
 

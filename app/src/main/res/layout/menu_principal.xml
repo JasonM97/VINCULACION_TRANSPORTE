@@ -66,8 +66,7 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
+    
     <!-- FOTO DEL USUARIO -->
     <ImageView
         android:id="@+id/avatar"
@@ -98,6 +97,8 @@
         tools:visibility="visible" />
 
     <!-- CONTENIDO DEL MENU DE LAS ACTVIDADES -->
+
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -112,10 +113,10 @@
         app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
-
     <FrameLayout
         android:id="@+id/frameLayout2"
         android:layout_width="wrap_content"
+        android:layout_marginEnd="10dp"
         android:layout_height="367dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -215,13 +216,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="397dp"
+        android:layout_height="65dp"
         android:layout_marginTop="40dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="6dp">
 
         <ImageView
             android:layout_width="200dp"
@@ -230,9 +231,10 @@
             app:srcCompat="@drawable/logo_mitad_mundo" />
 
         <ImageView
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
             app:srcCompat="@drawable/tecno" />
 
 
@@ -241,10 +243,10 @@
     <ImageButton
         android:id="@+id/btnInfo"
         android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
         android:scaleType="centerInside"
-        android:src="@drawable/info"
+        android:src="@drawable/informacion"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"

@@ -66,6 +66,7 @@ public class TarifaTransporte extends AppCompatActivity
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btn2 = findViewById(R.id.btn2);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btn3 = findViewById(R.id.btn3);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btn4 = findViewById(R.id.btn4);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btn5 = findViewById(R.id.btn5);
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +74,8 @@ public class TarifaTransporte extends AppCompatActivity
             public void onClick(View v) {
                 toggleContent(v, R.id.content1);
             }
+
+
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +99,49 @@ public class TarifaTransporte extends AppCompatActivity
             }
         });
 
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleContent(v, R.id.content5);
+            }
+        });
+
+         // ENLACES PARA QUE ME TRASE LAS RUTAS
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnRuta = findViewById(R.id.btnIr);
+
+        btnRuta.setOnClickListener(v -> {
+            Intent intent = new Intent(TarifaTransporte.this, rutaTransporte.class);
+            startActivity(intent);
+        });
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnRuta2 = findViewById(R.id.btnIr2);
+
+        btnRuta2.setOnClickListener(v -> {
+            Intent intent = new Intent(TarifaTransporte.this, rutaTransporte.class);
+            startActivity(intent);
+        });
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnRuta3 = findViewById(R.id.btnIr3);
+
+        btnRuta3.setOnClickListener(v -> {
+            Intent intent = new Intent(TarifaTransporte.this, rutaTransporte.class);
+            startActivity(intent);
+        });
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnRuta4 = findViewById(R.id.btnIr4);
+
+        btnRuta4.setOnClickListener(v -> {
+            Intent intent = new Intent(TarifaTransporte.this, rutaTransporte.class);
+            startActivity(intent);
+        });
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnRuta5 = findViewById(R.id.btnIr5);
+
+        btnRuta5.setOnClickListener(v -> {
+            Intent intent = new Intent(TarifaTransporte.this, rutaTransporte.class);
+            startActivity(intent);
+        });
 
     }
 /*
@@ -115,9 +161,6 @@ public class TarifaTransporte extends AppCompatActivity
         }
     }
 */
-
-
-
 
     private void toggleContent(View button, int contentId)
     {

@@ -193,7 +193,7 @@
                 android:background="@drawable/boton_redondeado"
                 android:layout_marginBottom="0dp"
                 android:textStyle="bold"
-                android:text="RUTA 1\n Desde: Parada 1    --->   Hasta: Parada 2" />
+                    android:text="RUTA 1\n Desde:La Ofelia    --->   Hasta: Kartodromo" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/content1"
                 android:layout_width="360dp"
@@ -231,7 +231,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 1"
+                    android:text="RUMICUCHO"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -241,7 +241,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia: Parada Principal  "
+                        android:text="Reino de Quito y 1 de Mayo \nReferencia: Despacho "
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -271,7 +271,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="DESDE : "
+                    android:text="HASTA : "
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -282,7 +282,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 2"
+                    android:text="LA OFELIA"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -292,7 +292,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="140dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia : Parada Secundaria"
+                    android:text="LA OFELIA\nReferencia : Terminal Ofelia"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -309,6 +309,7 @@
                     app:srcCompat="@drawable/icono_bus_publico" />
 
                 <Button
+                    android:id="@+id/btnIr"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_marginStart="260dp"
@@ -316,7 +317,6 @@
                     android:backgroundTint="@color/black"
                     android:text="IR RUTA"
                     android:textSize="10sp" />
-
 
                 <!-- ICONOS DE LOS PRECIOS DE LA TARIFA TRANASPORTE-->
 
@@ -407,7 +407,7 @@
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/boton_redondeado"
                 android:textStyle="bold"
-                android:text="RUTA 2\n Desde: Parada 1    --->   Hasta: Parada 2" />
+                android:text="RUTA 2\n Desde: La Ofelia    --->   Hasta: Calacalí" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/content2"
                 android:layout_width="360dp"
@@ -445,7 +445,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 1"
+                    android:text="CALACALÍ"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -455,7 +455,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia: Parada Principal  "
+                    android:text="Barrio los Reyes\nReferencia: Despacho  "
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -485,7 +485,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="DESDE : "
+                    android:text="HASTA : "
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -496,7 +496,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 2"
+                    android:text="LA OFELIA"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -506,7 +506,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="140dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia : Parada Secundaria"
+                    android:text="LA OFELIA\nReferencia : Terminala Ofelia"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -523,6 +523,7 @@
                     app:srcCompat="@drawable/icono_bus_publico" />
 
                 <Button
+                    android:id="@+id/btnIr2"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_marginStart="260dp"
@@ -620,8 +621,9 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/boton_redondeado"
-                android:textStyle="bold"
-                android:text="RUTA 3\n Desde: Parada 1    --->   Hasta: Parada 2" />
+                android:text="RUTA 3\n Desde: San Vicente    --->   Hasta: Ejido"
+                android:textStyle="bold" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/content3"
                 android:layout_width="360dp"
@@ -659,7 +661,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 1"
+                    android:text="SAN VICENTE"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -669,7 +671,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia: Parada Principal  "
+                    android:text="Calle Teresa Flor\nReferencia: Barrio San Lorenzo "
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -699,7 +701,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="DESDE : "
+                    android:text="HASTA : "
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -710,7 +712,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 2"
+                    android:text="EL EJIDO"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -720,7 +722,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="140dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia : Parada Secundaria"
+                    android:text="EJIDO\nReferencia : Parque Ejido"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -737,6 +739,7 @@
                     app:srcCompat="@drawable/icono_bus_publico" />
 
                 <Button
+                    android:id="@+id/btnIr3"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_marginStart="260dp"
@@ -825,7 +828,7 @@
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
-            <!-- ******************* Botón 3 ************************** -->
+            <!-- ******************* Botón 4 ************************** -->
             <Button
                 android:id="@+id/btn4"
                 android:layout_width="match_parent"
@@ -834,7 +837,7 @@
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/boton_redondeado"
                 android:textStyle="bold"
-                android:text="RUTA 4\n Desde: Parada 1    --->   Hasta: Parada 2" />
+                android:text="RUTA 4\n Desde: Pululahua    --->   Hasta: Panecillo" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/content4"
                 android:layout_width="360dp"
@@ -872,7 +875,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 1"
+                    android:text="PULULAHUA"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -882,7 +885,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia: Parada Principal  "
+                    android:text="Caspigasi\nReferencia: Iglesia Virgen\ndel Carmen  "
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -912,7 +915,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="DESDE : "
+                    android:text="HASTA : "
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -923,9 +926,9 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="120dp"
                     android:layout_marginEnd="25dp"
-                    android:text="Parada 2"
+                    android:text="MELCHOR AYMERICH"
                     android:textColor="@android:color/black"
-                    android:textSize="15sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -933,7 +936,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="140dp"
                     android:layout_marginEnd="25dp"
-                    android:text="LA OFELIA\nReferencia : Parada Secundaria"
+                    android:text="Viregn del Panecillo\nReferencia : Panecillo"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -950,6 +953,221 @@
                     app:srcCompat="@drawable/icono_bus_publico" />
 
                 <Button
+                    android:id="@+id/btnIr4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="260dp"
+                    android:layout_marginTop="110dp"
+                    android:backgroundTint="@color/black"
+                    android:text="IR RUTA"
+                    android:textSize="10sp" />
+
+
+                <!-- ICONOS DE LOS PRECIOS DE LA TARIFA TRANASPORTE-->
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="190dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="16dp"
+                    app:srcCompat="@drawable/icono_moneda" />
+
+                <!-- TARFIA NORMAL-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="200dp"
+                    android:layout_marginEnd="25dp"
+                    android:text=" TARIFA\nNORMAL"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="235dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="$ 0.35"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <!-- TARFIA TERCERA EDAD O ESTUDIANTES-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="200dp"
+                    android:text="TARIFA TERCERA EDAD\n       ESTUDIANTES "
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="225dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="$ 0.17"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- TARFIA DISCAPACITADOS-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="260dp"
+                    android:text="TARIFA PREFERENCIAL "
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="270dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="$ 0.10"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- ******************* Botón 5 ************************** -->
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/boton_redondeado"
+                android:textStyle="bold"
+                android:text="RUTA 5\nDesde:Pululahua Miraflores --> Hasta:Panecillo" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/content5"
+                android:layout_width="360dp"
+                android:layout_height="317dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:cardBackgroundColor="#999999"
+                app:cardCornerRadius="10dp">
+
+
+                <!-- ICON LOCATION  DESDE -->
+                <ImageView
+                    android:layout_width="71dp"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="16dp"
+                    app:srcCompat="@android:drawable/ic_menu_mylocation" />
+                <!-- TITLE Y TEXT   -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="DESDE : "
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="PULULAHUA"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="Caspigasi\nReferencia: Iglesia Virgen\ndel Carmen  "
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <!-- ICON SEPERACION DISTANCIA -->
+                <ImageView
+                    android:layout_width="71dp"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginBottom="16dp"
+                    app:srcCompat="@drawable/icono_linea_vertical" />
+
+                <!-- ICON LOCATION  HASTA -->
+                <ImageView
+                    android:layout_width="71dp"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="120dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="16dp"
+                    app:srcCompat="@android:drawable/ic_menu_mylocation" />
+                <!-- TITLE Y TEXT   -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="120dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="HASTA : "
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginTop="120dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="Av. América"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="Circunvalación\nReferencia : IESS"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+
+                <!-- BOTON IR A LA RUTA TRANSPORTE-->
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="16dp"
+                    app:srcCompat="@drawable/icono_bus_publico" />
+
+                <Button
+                    android:id="@+id/btnIr5"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_marginStart="260dp"
