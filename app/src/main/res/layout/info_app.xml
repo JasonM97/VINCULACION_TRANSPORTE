@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- ENCABEZADO DE LA PAGINA FORMULARIO -->
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:background="@drawable/rounded_encabezado"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
         <ImageButton
@@ -18,8 +20,8 @@
             android:layout_width="36dp"
             android:layout_height="35dp"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/icono_menu"
             android:contentDescription="TODO" />
 
@@ -27,8 +29,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             android:padding="16dp">
 
 
@@ -42,14 +44,14 @@
                 android:textStyle="bold" />
 
             <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="APLICACIÓN"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="APLICACIÓN"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -68,54 +70,60 @@
             android:src="@drawable/tecno2" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="324dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:textStyle="bold"
-            android:text="DESARROLLADO POR : "/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginStart="20dp"
-            android:text="Alizon Daniela Pilatuña Simbaña"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginStart="20dp"
-            android:text="Christian Marcelo Cevallos Chicaiza"/>
+            android:text="DESARROLLADO POR : "
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="324dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:text="Jimmy Joel Velasquez Pila"/>
+            android:text="Alizon Daniela Pilatuña Simbaña" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="324dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:text="Jason Javier Marcatoma Llivi"/>
+            android:text="Christian Marcelo Cevallos Chicaiza" />
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="324dp"
+            android:layout_height="31dp"
             android:layout_marginStart="20dp"
-            android:text="Marcos Joel Galarza Paredes"/>
+            android:text="Jimmy Joel Velasquez Pila" />
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="324dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:text="Washington Toledo"/>
+            android:text="Jason Javier Marcatoma Llivi" />
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="324dp"
+            android:layout_height="32dp"
             android:layout_marginStart="20dp"
-            android:textStyle="bold"
-            android:text="TUTOR : "/>
+            android:text="Marcos Joel Galarza Paredes" />
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="324dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="20dp"
+            android:text="Washington Toledo" />
+
+        <TextView
+            android:layout_width="324dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:text="Ing. Diego Altamirano"/>
+            android:text="TUTOR : "
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="324dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:text="Ing. Diego Altamirano" />
 
     </LinearLayout>
 
