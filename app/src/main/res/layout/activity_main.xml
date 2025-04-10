@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
     android:background="@drawable/fondo_mitad"
-    android:layout_height="match_parent">
+    android:fitsSystemWindows="true">
 
     <!-- LOGO DE SAN ANTONIO GAD -->
 
@@ -41,11 +41,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
-            android:textStyle="bold"
             android:layout_marginTop="30dp"
             android:layout_marginRight="25dp"
             android:text="USUARIO"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
         <!-- TEXT BOX PASSWORD -->
 
@@ -73,11 +73,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
-            android:textStyle="bold"
             android:layout_marginTop="110dp"
             android:layout_marginRight="25dp"
             android:text="CONTRASEÑA"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/EtxtContraseña"
@@ -113,9 +113,9 @@
             android:layout_marginLeft="165dp"
             android:layout_marginTop="275dp"
             android:layout_marginRight="20dp"
-            android:textStyle="bold"
             android:text="¿Registrarse?"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <!-- ICON USER  -->
         <ImageView
@@ -154,25 +154,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
-            android:textStyle="bold"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="190dp"
             android:text="LOGIN WITH"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btnGoogle"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="215dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="215dp"
             android:background="@drawable/rendodear_boton_rss"
             android:padding="15dp"
             android:scaleType="centerInside"
             android:src="@drawable/google"
             android:textColor="@color/white" />
-
-
 
 
     </androidx.cardview.widget.CardView>

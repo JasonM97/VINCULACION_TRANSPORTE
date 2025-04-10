@@ -96,6 +96,7 @@
     </LinearLayout>
     <!-- CONTENIDO DE FORMULARIO -->
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp">
@@ -104,8 +105,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical">
 
             <!-- FORMULAARIOS-->
@@ -116,30 +117,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:text="ENVIANOS TUS QUEJAS O SUGERENCIAS "
                 android:textColor="@color/azul"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="ENVIANOS TUS QUEJAS O SUGERENCIAS "/>
+                android:textStyle="bold" />
             <!-- Grupo Nombre y Apellido -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtNombre"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/rounded_edittext_bakgraund_azul"
                     android:hint="Nombre"
                     android:inputType="text"
                     android:padding="15dp"
-                    android:textColorHint="@android:color/darker_gray"
                     android:textColor="@color/azul"
+                    android:textColorHint="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <EditText
@@ -151,8 +152,8 @@
                     android:hint="Apellido"
                     android:inputType="text"
                     android:padding="15dp"
-                    android:textColorHint="@android:color/darker_gray"
                     android:textColor="@color/azul"
+                    android:textColorHint="@android:color/darker_gray"
                     android:textSize="14sp" />
             </LinearLayout>
             <!-- celular y mail -->
@@ -160,21 +161,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtCelular"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/rounded_edittext_bakgraund_azul"
                     android:hint="Número Celular"
                     android:inputType="phone"
                     android:padding="15dp"
-                    android:textColorHint="@android:color/darker_gray"
                     android:textColor="@color/azul"
+                    android:textColorHint="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <EditText
@@ -186,23 +187,23 @@
                     android:hint="Correo Electronico"
                     android:inputType="textEmailAddress"
                     android:padding="15dp"
-                    android:textColorHint="@android:color/darker_gray"
                     android:textColor="@color/azul"
+                    android:textColorHint="@android:color/darker_gray"
                     android:textSize="14sp" />
             </LinearLayout>
             <!-- cuadro de comentarios -->
             <EditText
                 android:id="@+id/txtDescripcion"
                 android:layout_width="match_parent"
-                android:layout_marginStart="10dp"
                 android:layout_height="120dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext_bakgraund_azul"
+                android:gravity="start|top"
                 android:hint="Escribe tus comentarios o sugerencias aquí..."
                 android:inputType="textMultiLine"
-                android:gravity="start|top"
-                android:padding="10dp"
-                android:background="@drawable/rounded_edittext_bakgraund_azul"
                 android:maxLines="10"
+                android:padding="10dp"
                 android:scrollbars="vertical" />
             <!-- enviar formulario -->
             <Button
@@ -213,7 +214,7 @@
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/azul"
                 android:text="ENVIAR"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
             <!--  ////////////////// CONTACTANOS-->
 
@@ -223,10 +224,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
+                android:text="CONTACTANOS"
                 android:textColor="@color/azul"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="CONTACTANOS"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -269,34 +270,33 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
+                android:text="      HOARARIOS DE ATENCIÓN  "
                 android:textColor="@color/azul"
-                android:layout_gravity="center"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:text="      HOARARIOS DE ATENCIÓN  "/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginStart="10dp"
+                android:text="Lunes - Viernes"
                 android:textColor="@color/azul"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:text="Lunes - Viernes"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginStart="10dp"
+                android:text="8:00am - 17:00pm"
                 android:textColor="@color/azul"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:text="8:00am - 17:00pm"/>
-
-
+                android:textStyle="bold" />
 
 
         </LinearLayout>
