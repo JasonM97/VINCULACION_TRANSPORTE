@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <!-- ENCABEZADO DE LA PAGINA -->
     <LinearLayout
@@ -92,12 +92,17 @@
 
 
     <!-- INFORMACION DE LOS BUSES -->
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
-        android:padding="10dp">
+        android:layout_marginTop="176dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -116,7 +121,7 @@
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:src="@drawable/icono_bus"/>
+                    android:src="@drawable/icono_bus" />
                 <!-- CHOFER BUS -->
 
                 <LinearLayout
@@ -128,41 +133,45 @@
                         android:layout_width="180dp"
                         android:layout_height="90dp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/icono_chofer"/>
+                            android:src="@drawable/icono_chofer" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="JOSÉ\nTORRES"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                     <!-- INFORMACION BUS-->
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="No.DE UNIDAD"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="PLACA"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="ABC-123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -182,7 +191,7 @@
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:src="@drawable/icono_bus"/>
+                    android:src="@drawable/icono_bus" />
                 <!-- CHOFER BUS -->
 
                 <LinearLayout
@@ -192,44 +201,48 @@
                     <!-- ICONO BUS Y CHOFER -->
                     <LinearLayout
                         android:layout_width="180dp"
-                        android:layout_marginTop="5dp"
                         android:layout_height="90dp"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/icono_chofer"/>
+                            android:src="@drawable/icono_chofer" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="PABLO\nHERNANDEZ"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                     <!-- INFORMACION BUS-->
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="No.DE UNIDAD"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="PLACA"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="ABC-123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -249,7 +262,7 @@
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:src="@drawable/icono_bus"/>
+                    android:src="@drawable/icono_bus" />
                 <!-- CHOFER BUS -->
 
                 <LinearLayout
@@ -261,41 +274,45 @@
                         android:layout_width="180dp"
                         android:layout_height="90dp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/icono_chofer"/>
+                            android:src="@drawable/icono_chofer" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="PABLO\nPEREZ"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                     <!-- INFORMACION BUS-->
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="No.DE UNIDAD"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="PLACA"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="ABC-123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -315,7 +332,7 @@
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:src="@drawable/icono_bus"/>
+                    android:src="@drawable/icono_bus" />
                 <!-- CHOFER BUS -->
 
                 <LinearLayout
@@ -327,41 +344,45 @@
                         android:layout_width="180dp"
                         android:layout_height="90dp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/icono_chofer"/>
+                            android:src="@drawable/icono_chofer" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="DAVID\nLOPEZ"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                     <!-- INFORMACION BUS-->
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="No.DE UNIDAD"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="PLACA"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="ABC-123"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -378,15 +399,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="UNIDADES DE LA COOPERATIVA"
-        android:textStyle="bold"
         android:textColor="@color/azul"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="MissingConstraints" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
