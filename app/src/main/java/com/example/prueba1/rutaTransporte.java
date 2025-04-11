@@ -2,6 +2,7 @@ package com.example.prueba1;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -58,17 +59,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener
-{
-
+public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     // Declaración de variables de la interfaz y lógica
     EditText txtLatitud, txtLongitud; // Campos para mostrar las coordenadas actuales
     GoogleMap mMap; // Objeto del mapa de Google
-    List<LatLng> busStops = new ArrayList<>(); // Lista de paradas marcadas en el mapa
+    List<BusStop> busStops = new ArrayList<>(); // Lista de paradas marcadas en el mapa (ahora con nombre)
     Polyline currentRoute; // Polilínea que representa la ruta actual
     FusedLocationProviderClient fusedLocationClient; // Cliente para obtener la ubicación del dispositivo
-    List<List<LatLng>> savedRoutes = new ArrayList<>(); // Lista de rutas guardadas
+    List<List<BusStop>> savedRoutes = new ArrayList<>(); // Lista de rutas guardadas
     Marker currentLocationMarker; // Marcador de la ubicación actual del usuario
     private List<Marker> stopMarkers = new ArrayList<>(); // Lista de marcadores de paradas
     ListView listSavedRoutes; // Lista para mostrar rutas guardadas
@@ -78,51 +77,52 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
     private static final int NOTIFICATION_ID_BASE = 100; // Base para IDs de notificaciones únicas
     private int selectedRouteIndex = -1; // Índice de la ruta seleccionada en la lista
 
+    // Clase interna para representar una parada con coordenadas y nombre
+    private static class BusStop {
+        LatLng location;
+        String name;
 
+        BusStop(LatLng location, String name) {
+            this.location = location;
+            this.name = name;
+        }
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-            super.onCreate(savedInstanceState);
-            EdgeToEdge.enable(this);
-            setContentView(R.layout.ruta_transporte);
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.ruta_transporte);
 
         //REFERENCIA DEL IMAGEN
         ImageView imgAvatar = findViewById(R.id.avatar);
         String generoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("generoUsuario", ""); // "masculino" o "femenino"
         // Establecer la imagen según el género
-        if (generoUsuario != null)
-        {
-            if (generoUsuario.equalsIgnoreCase("Mujer"))
-            {
+        if (generoUsuario != null) {
+            if (generoUsuario.equalsIgnoreCase("Mujer")) {
                 imgAvatar.setImageResource(R.drawable.icono_mujer);
             } else {
                 imgAvatar.setImageResource(R.drawable.icono_hombre);
             }
         }
 
+        //REFERENCIA A LOS TEXTVIEWS
+        TextView txtUsuario = findViewById(R.id.nameView);
+        // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
+        String nombreUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("nombreUsuario", "");
+        String apellidoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("apellidoUsuario", "");
+        txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
 
-            //REFERENCIA A LOS TEXTVIEWS
-            TextView txtUsuario = findViewById(R.id.nameView);
-            // RECUPERAR EL NOMBRE DEL USUARIO DESDE SHAREDPREFERENCES
-            String nombreUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("nombreUsuario", "");
-            String apellidoUsuario = getSharedPreferences("userData", MODE_PRIVATE).getString("apellidoUsuario", "");
-            txtUsuario.setText(nombreUsuario + " " + apellidoUsuario);
+        // ENLACE PARA VOLVER A INICIO DE SESION
+        ImageButton btnMenuPrincipal = findViewById(R.id.btnMenuPrincipal);
 
-
-            // ENLACE PARA VOLVER A INCIO DE SESION
-            ImageButton btnMenuPrincipal = findViewById(R.id.btnMenuPrincipal);
-
-           btnMenuPrincipal.setOnClickListener(v ->{
+        btnMenuPrincipal.setOnClickListener(v -> {
             Intent intent = new Intent(rutaTransporte.this, MenuPrincipal.class);
             startActivity(intent);
-           });
+        });
 
-
-
-           // LALITUTD Y LONGITUD MAPA
+        // LATITUD Y LONGITUD MAPA
 
         // Vinculación de elementos de la interfaz de usuario
         txtLatitud = findViewById(R.id.txtLatitud);
@@ -134,16 +134,41 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
         createNotificationChannel(); // Configura el canal de notificaciones
         loadRoutesFromFile(); // Carga rutas guardadas desde el archivo
 
-        // Configuración del adaptador para la lista de rutas guardadas
-                routesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getRouteNames());
-                listSavedRoutes.setAdapter(routesAdapter);
-                listSavedRoutes.setOnItemClickListener((parent, view, position, id) -> {
-                    selectedRouteIndex = position;
-                    showSavedRoute(position); // Muestra la ruta seleccionada en el mapa
-                    Toast.makeText(this, "Ruta " + (position + 1) + " seleccionada", Toast.LENGTH_SHORT).show();
-                });
+        // * MODIFICACION PARA EL ÍNDICE *
+        // Verificar si se pasó un índice de ruta desde TarifaTransporte
+        Intent intent = getIntent();
+        if (intent.hasExtra("routeIndex")) {
+            int routeIndex = intent.getIntExtra("routeIndex", -1);
+            if (routeIndex >= 0 && routeIndex < savedRoutes.size()) {
+                selectedRouteIndex = routeIndex;
+                // Mostrar la ruta automáticamente cuando el mapa esté listo
+                if (mMap != null) {
+                    showSavedRoute(routeIndex);
+                } else {
+                    // Si el mapa aún no está listo, esperar a que lo esté
+                    SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.maps);
+                    mapFragment.getMapAsync(googleMap -> {
+                        mMap = googleMap;
+                        onMapReady(googleMap); // Llamar al método original
+                        showSavedRoute(routeIndex); // Mostrar la ruta seleccionada
+                    });
+                }
+            } else {
+                Toast.makeText(this, "Ruta no encontrada", Toast.LENGTH_SHORT).show();
+            }
+        }
+        // * FIN DEL CAMBIO *
 
-// Inicialización del fragmento del mapa
+        // Configuración del adaptador para la lista de rutas guardadas
+        routesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getRouteNames());
+        listSavedRoutes.setAdapter(routesAdapter);
+        listSavedRoutes.setOnItemClickListener((parent, view, position, id) -> {
+            selectedRouteIndex = position;
+            showSavedRoute(position); // Muestra la ruta seleccionada en el mapa
+            Toast.makeText(this, "Ruta " + (position + 1) + " seleccionada", Toast.LENGTH_SHORT).show();
+        });
+
+        // Inicialización del fragmento del mapa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.maps);
         mapFragment.getMapAsync(this);
 
@@ -163,6 +188,7 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
 
         // Configuración del botón para eliminar rutas
         Button btnDeleteRoute = findViewById(R.id.btnDeleteRoute);
+        btnDeleteRoute.setEnabled(false); //desahibilitar el boton para que no sea clikeable
         btnDeleteRoute.setOnClickListener(v -> {
             if (selectedRouteIndex != -1) {
                 deleteSavedRoute(selectedRouteIndex);
@@ -170,8 +196,6 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
                 Toast.makeText(this, "Selecciona una ruta para eliminar", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
     // Crea el canal de notificaciones para Android 8.0 y superior
@@ -233,18 +257,35 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
         txtLatitud.setText(String.valueOf(latLng.latitude)); // Muestra la latitud en el campo
         txtLongitud.setText(String.valueOf(latLng.longitude)); // Muestra la longitud en el campo
 
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(latLng)
-                .title("Parada " + (busStops.size() + 1)) // Título con número de parada
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)); // Marcador rojo
-        Marker marker = mMap.addMarker(markerOptions);
-        stopMarkers.add(marker); // Agrega el marcador a la lista
+        // Crear un diálogo para pedir el nombre de la parada
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Nombre de la Parada");
+        builder.setMessage("Ingresa un nombre para esta parada:");
 
-        busStops.add(latLng); // Agrega las coordenadas a la lista de paradas
+        final EditText input = new EditText(this);
+        builder.setView(input);
 
-        if (busStops.size() >= 2) {
-            drawBusRoute(); // Dibuja la ruta si hay al menos 2 paradas
-        }
+        builder.setPositiveButton("Aceptar", (dialog, which) -> {
+            String stopName = input.getText().toString().trim();
+            if (stopName.isEmpty()) {
+                stopName = "Parada " + (busStops.size() + 1); // Nombre por defecto si no se ingresa nada
+            }
+
+            MarkerOptions markerOptions = new MarkerOptions()
+                    .position(latLng)
+                    .title(stopName) // Usar el nombre personalizado
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)); // Marcador rojo
+            Marker marker = mMap.addMarker(markerOptions);
+            stopMarkers.add(marker); // Agrega el marcador a la lista
+
+            busStops.add(new BusStop(latLng, stopName)); // Agrega la parada con su nombre
+
+            if (busStops.size() >= 2) {
+                drawBusRoute(); // Dibuja la ruta si hay al menos 2 paradas
+            }
+        });
+        builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.cancel());
+        builder.show();
     }
 
     // Dibuja la ruta entre las paradas usando una polilínea
@@ -260,18 +301,18 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
     private String getDirectionsUrl() {
         if (busStops.size() < 2) return ""; // No hay suficiente información para una ruta
 
-        LatLng origin = busStops.get(0); // Punto de origen
-        String strOrigin = "origin=" + origin.latitude + "," + origin.longitude;
+        BusStop origin = busStops.get(0); // Punto de origen
+        String strOrigin = "origin=" + origin.location.latitude + "," + origin.location.longitude;
 
-        LatLng destination = busStops.get(busStops.size() - 1); // Punto de destino
-        String strDest = "destination=" + destination.latitude + "," + destination.longitude;
+        BusStop destination = busStops.get(busStops.size() - 1); // Punto de destino
+        String strDest = "destination=" + destination.location.latitude + "," + destination.location.longitude;
 
         String waypoints = ""; // Puntos intermedios
         if (busStops.size() > 2) {
             waypoints = "waypoints=";
             for (int i = 1; i < busStops.size() - 1; i++) {
-                LatLng point = busStops.get(i);
-                waypoints += point.latitude + "," + point.longitude;
+                BusStop point = busStops.get(i);
+                waypoints += point.location.latitude + "," + point.location.longitude;
                 if (i < busStops.size() - 2) waypoints += "|"; // Separador entre waypoints
             }
         }
@@ -378,7 +419,7 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
         return poly;
     }
 
-    // Verifica la ubicación del usuario periódicamente cada 20 segundos
+    // Verifica la ubicación del usuario periódicamente cada 40 segundos
     @SuppressLint("MissingPermission")
     private void checkLocationPeriodically() {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
@@ -403,7 +444,7 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
                 });
                 checkLocationPeriodically(); // Se llama recursivamente
             }
-        }, 20000); // Intervalo de 20 segundos
+        }, 40000); // Intervalo de 40 segundos
     }
 
     // Verifica la proximidad a las paradas y envía notificaciones push con distancia y ETA
@@ -411,19 +452,19 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
         if (busStops.isEmpty()) return; // No hace nada si no hay paradas
 
         for (int i = 0; i < busStops.size(); i++) {
-            LatLng stop = busStops.get(i);
+            BusStop stop = busStops.get(i);
             float[] results = new float[1];
-            Location.distanceBetween(currentLocation.latitude, currentLocation.longitude, stop.latitude, stop.longitude, results);
+            Location.distanceBetween(currentLocation.latitude, currentLocation.longitude, stop.location.latitude, stop.location.longitude, results);
             float distance = results[0]; // Distancia en metros
 
             int notificationId = NOTIFICATION_ID_BASE + i; // ID único por parada
 
             if (distance < 5 && i != lastNotifiedStopIndex) { // Llegaste a la parada (< 5 metros)
-                String message = "¡Has llegado a Parada " + (i + 1) + "!";
+                String message = "¡Has llegado a " + stop.name + "!";
                 sendNotification("Llegada a Parada", message, notificationId);
                 lastNotifiedStopIndex = i;
             } else if (distance < 100 && i != lastNotifiedStopIndex) { // Estás cerca (< 100 metros)
-                String proximityMessage = "Estás a " + String.format("%.0f", distance) + " metros de Parada " + (i + 1);
+                String proximityMessage = "Estás a " + String.format("%.0f", distance) + " metros de " + stop.name;
                 sendNotification("Proximidad a Parada", proximityMessage, notificationId); // Notificación inicial con distancia
                 calculateETAForStop(currentLocation, stop, i, distance); // Calcula el ETA
                 lastNotifiedStopIndex = i;
@@ -434,22 +475,24 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
     }
 
     // Calcula el ETA desde la ubicación actual hasta una parada específica
-    private void calculateETAForStop(LatLng currentLocation, LatLng stop, int stopIndex, float distance) {
+    private void calculateETAForStop(LatLng currentLocation, BusStop stop, int stopIndex, float distance) {
         String url = "https://maps.googleapis.com/maps/api/directions/json?" +
                 "origin=" + currentLocation.latitude + "," + currentLocation.longitude +
-                "&destination=" + stop.latitude + "," + stop.longitude +
+                "&destination=" + stop.location.latitude + "," + stop.location.longitude +
                 "&mode=driving&key=AIzaSyDfEc5cgk4zuh47rrsCV0d3NprpBWUmkS8";
-        new FetchETAForNotificationTask(stopIndex, distance).execute(url); // Ejecuta la tarea para obtener el ETA
+        new FetchETAForNotificationTask(stopIndex, distance, stop.name).execute(url); // Ejecuta la tarea para obtener el ETA
     }
 
     // Tarea asíncrona para obtener el ETA y enviar una notificación con distancia y tiempo
     private class FetchETAForNotificationTask extends AsyncTask<String, Void, String> {
         private int stopIndex;
         private float distance;
+        private String stopName;
 
-        public FetchETAForNotificationTask(int stopIndex, float distance) {
+        public FetchETAForNotificationTask(int stopIndex, float distance, String stopName) {
             this.stopIndex = stopIndex;
             this.distance = distance;
+            this.stopName = stopName;
         }
 
         @Override
@@ -490,7 +533,7 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
                         JSONObject duration = leg.getJSONObject("duration");
                         String durationText = duration.getString("text");
                         // Envía notificación con distancia y ETA
-                        String message = "Estás a " + String.format("%.0f", distance) + " metros de Parada " + (stopIndex + 1) +
+                        String message = "Estás a " + String.format("%.0f", distance) + " metros de " + stopName +
                                 " - ETA: " + durationText;
                         sendNotification("Proximidad a Parada", message, NOTIFICATION_ID_BASE + stopIndex);
                     }
@@ -506,10 +549,10 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
         if (busStops.isEmpty()) return;
 
         for (int i = 0; i < busStops.size(); i++) {
-            LatLng stop = busStops.get(i);
+            BusStop stop = busStops.get(i);
             String url = "https://maps.googleapis.com/maps/api/directions/json?" +
                     "origin=" + currentLocation.latitude + "," + currentLocation.longitude +
-                    "&destination=" + stop.latitude + "," + stop.longitude +
+                    "&destination=" + stop.location.latitude + "," + stop.location.longitude +
                     "&mode=driving&key=AIzaSyDfEc5cgk4zuh47rrsCV0d3NprpBWUmkS8";
             new FetchETAFromCurrentTask(i).execute(url); // Calcula el ETA para cada parada
         }
@@ -602,9 +645,10 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
             stopMarkers.clear();
             busStops.addAll(savedRoutes.get(routeIndex)); // Carga las paradas de la ruta seleccionada
             for (int i = 0; i < busStops.size(); i++) {
+                BusStop stop = busStops.get(i);
                 Marker marker = mMap.addMarker(new MarkerOptions()
-                        .position(busStops.get(i))
-                        .title("Parada " + (i + 1))
+                        .position(stop.location)
+                        .title(stop.name) // Usar el nombre personalizado
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
                 stopMarkers.add(marker); // Agrega los nuevos marcadores
             }
@@ -615,8 +659,8 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
             // Ajusta la cámara para mostrar toda la ruta
             if (!busStops.isEmpty()) {
                 LatLngBounds.Builder builder = new LatLngBounds.Builder();
-                for (LatLng stop : busStops) {
-                    builder.include(stop); // Incluye cada parada en los límites
+                for (BusStop stop : busStops) {
+                    builder.include(stop.location); // Incluye cada parada en los límites
                 }
                 LatLngBounds bounds = builder.build(); // Construye los límites
                 int padding = 100; // Espacio en píxeles alrededor de la ruta
@@ -656,12 +700,13 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
     private void saveRoutesToFile() {
         try {
             JSONArray jsonRoutes = new JSONArray();
-            for (List<LatLng> route : savedRoutes) {
+            for (List<BusStop> route : savedRoutes) {
                 JSONArray jsonRoute = new JSONArray();
-                for (LatLng point : route) {
+                for (BusStop stop : route) {
                     JSONObject jsonPoint = new JSONObject();
-                    jsonPoint.put("latitude", point.latitude);
-                    jsonPoint.put("longitude", point.longitude);
+                    jsonPoint.put("latitude", stop.location.latitude);
+                    jsonPoint.put("longitude", stop.location.longitude);
+                    jsonPoint.put("name", stop.name); // Guardar el nombre de la parada
                     jsonRoute.put(jsonPoint);
                 }
                 jsonRoutes.put(jsonRoute);
@@ -692,12 +737,13 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
 
                 for (int i = 0; i < jsonRoutes.length(); i++) {
                     JSONArray jsonRoute = jsonRoutes.getJSONArray(i);
-                    List<LatLng> route = new ArrayList<>();
+                    List<BusStop> route = new ArrayList<>();
                     for (int j = 0; j < jsonRoute.length(); j++) {
                         JSONObject jsonPoint = jsonRoute.getJSONObject(j);
                         double lat = jsonPoint.getDouble("latitude");
                         double lng = jsonPoint.getDouble("longitude");
-                        route.add(new LatLng(lat, lng));
+                        String name = jsonPoint.optString("name", "Parada " + (j + 1)); // Nombre por defecto si no existe
+                        route.add(new BusStop(new LatLng(lat, lng), name));
                     }
                     savedRoutes.add(route);
                 }
@@ -721,14 +767,4 @@ public class rutaTransporte extends AppCompatActivity implements OnMapReadyCallb
             Toast.makeText(this, "Permiso de notificaciones otorgado", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
-
-
-
-
-
-
-
 }
